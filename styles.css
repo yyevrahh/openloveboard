@@ -1,0 +1,11 @@
+body {
+    min-height: 100vh;
+    background-image: url('res/board_mat.svg');
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-repeat: repeat;
+}
