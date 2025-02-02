@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyAnzS56LxOeG3PysO1ELZdcVbFwXu9-sj0",
-  authDomain: "openloveboard.firebaseapp.com",
-  projectId: "openloveboard",
-  storageBucket: "openloveboard.firebasestorage.app",
-  messagingSenderId: "319903384288",
-  appId: "1:319903384288:web:5d1e8033a2bdfb02e88685",
-  measurementId: "G-M6XN9MQ3SK"
+    apiKey: process.env.FIREBASE,
+    authDomain: "openloveboard.firebaseapp.com",
+    projectId: "openloveboard",
+    storageBucket: "openloveboard.firebasestorage.app",
+    messagingSenderId: "319903384288",
+    appId: "1:319903384288:web:5d1e8033a2bdfb02e88685",
+    measurementId: "G-M6XN9MQ3SK"
 };
 
 const app = firebase.initializeApp(firebaseConfig);

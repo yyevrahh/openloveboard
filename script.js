@@ -5,7 +5,7 @@ $(window).on('load', function () {
 });
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAnzS56LxOeG3PysO1ELZdcVbFwXu9-sj0",
+    apiKey: process.env.FIREBASE,
     authDomain: "openloveboard.firebaseapp.com",
     projectId: "openloveboard",
     storageBucket: "openloveboard.firebasestorage.app",
