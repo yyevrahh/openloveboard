@@ -1,13 +1,14 @@
 body {
     min-height: 95vh;
-    background: #fff8da;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-repeat: repeat;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+    background: #fff;
 }
 
 .loader {
@@ -20,7 +21,7 @@ body {
 .loader:before,
 .loader:after {
     content: "";
-    background: #ff3d00 ;
+    background: #ff5bce ;
     width: 40px;
     height: 60px;
     border-radius: 50px 50px 0 0;
@@ -60,107 +61,61 @@ body {
 
 .nav {
     position: fixed;
+    height: 6vh;
+    width: 96%;
+    border-bottom: 1px solid #ff5bce;
+    padding: 2vw 2%;
+}
+
+
+.search-box {
+    margin-top: 20vh;
+    height: fit-content;
+    width: 96%;
+    border-bottom: 1px solid #ff5bce;
+    border-top: 1px solid red;
+    padding: 2vw 2%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 96%;
-    height: 9vh;
-    background: #fcafbca2;
-    padding: 1% 2%;
-    backdrop-filter: blur(2px);
-}
-
-.messages {
-    overflow: auto;
-    width: 96%;
-    margin: 10vh auto 0 auto;
-    height: 100vh;
-    padding: 6vh 2%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    justify-items: center;
-}
-
-.message {
-    width: 290px;
-    height: 290px;
-    background-image: url('res/love.png');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 13%;
-}
-
-h3,
-h1,
-p {
-    font-family: 'Just Another Hand', serif;
-    letter-spacing: 1.2px;
-}
-
-.info {
-    all: unset;
-    color: yellow;
-    font-size: 19px;
-    cursor: pointer;
-    background: none;
-    border: 3px solid yellow;
-    border-radius: 50%;
-    height: 5vh;
-    width: 5vh;
-    text-align: center;
-    font-family: 'Just Another Hand', serif;
-}
-
-.search {
-    width: 90%;
-    height: 5vh;
     flex-direction: column;
-    display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.inputs {
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     align-items: start;
-    margin-top: 25vh;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 3%;
-    padding-left: 20px;
 }
 
 input {
-    width: 80%;
-    height: 100%;
-    border: 3px solid pink;
-    border-radius: 50px;
-    padding: 0 10px;
-    font-family: 'Just Another Hand', serif;
-    font-size: 19px;
-    letter-spacing: 1.2px;
-    margin-top: -5px;
+    width: 98%;
+    height: 3vh;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 3px 8px;
 }
 
-button {
-    all: unset;
-    color: pink;
-    font-size: 19px;
-    cursor: pointer;
-    background: none;
-    border: 3px solid pink;
-    border-radius: 50px;
-    height: 5vh;
-    width: 5vh;
-    text-align: center;
-    font-family: 'Just Another Hand', serif;
+.messages {
+    min-height: 100vh;
+    margin-top: 2vh;
+    border-bottom: 1px solid #ff5bce;
+    border-top: 1px solid red;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;justify-items: center;
 }
 
-.search-button {
-    margin-top: 25px;
-    background: pink;
-    color: white;
-    width: 80%;
-    height: 100%;
-    padding: 0 10px;
-    font-family: 'Just Another Hand', serif;
-    font-size: 19px;
-    letter-spacing: 1.2px;
+.messageItem {
+    height: 500px;
+    width: 98%;
+    border: 1px dashed green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
