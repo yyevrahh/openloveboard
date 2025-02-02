@@ -1,11 +1,166 @@
 body {
-    min-height: 100vh;
-    background-image: url('res/board_mat.svg');
-    background-position: center;
-    background-size: contain;
+    min-height: 95vh;
+    background: #fff8da;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: repeat;
+    margin: 0;
+    padding: 0;
+}
+
+.loader {
+    position: relative;
+    width: 40px;
+    height: 60px;
+    animation: heartBeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+  
+.loader:before,
+.loader:after {
+    content: "";
+    background: #ff3d00 ;
+    width: 40px;
+    height: 60px;
+    border-radius: 50px 50px 0 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: rotate(45deg);
+    transform-origin: 50% 68%;
+    box-shadow: 5px 4px 5px #0004 inset;
+}
+
+.loader:after {
+    transform: rotate(-45deg);
+}
+  
+@keyframes heartBeat {
+    0% { transform: scale(0.95) }
+    5% { transform: scale(1.1) }
+    39% { transform: scale(0.85) }
+    45% { transform: scale(1) }
+    60% { transform: scale(0.95) }
+    100% { transform: scale(0.9) }
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.content.visible {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-repeat: repeat;
+}
+
+.nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    height: 9vh;
+    background: #fcafbca2;
+    padding: 1% 2%;
+    backdrop-filter: blur(2px);
+}
+
+.messages {
+    overflow: auto;
+    width: 96%;
+    margin: 10vh auto 0 auto;
+    height: 100vh;
+    padding: 6vh 2%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+}
+
+.message {
+    width: 290px;
+    height: 290px;
+    background-image: url('res/love.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 13%;
+}
+
+h3,
+h1,
+p {
+    font-family: 'Just Another Hand', serif;
+    letter-spacing: 1.2px;
+}
+
+.info {
+    all: unset;
+    color: yellow;
+    font-size: 19px;
+    cursor: pointer;
+    background: none;
+    border: 3px solid yellow;
+    border-radius: 50%;
+    height: 5vh;
+    width: 5vh;
+    text-align: center;
+    font-family: 'Just Another Hand', serif;
+}
+
+.search {
+    width: 90%;
+    height: 5vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-top: 25vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3%;
+    padding-left: 20px;
+}
+
+input {
+    width: 80%;
+    height: 100%;
+    border: 3px solid pink;
+    border-radius: 50px;
+    padding: 0 10px;
+    font-family: 'Just Another Hand', serif;
+    font-size: 19px;
+    letter-spacing: 1.2px;
+    margin-top: -5px;
+}
+
+button {
+    all: unset;
+    color: pink;
+    font-size: 19px;
+    cursor: pointer;
+    background: none;
+    border: 3px solid pink;
+    border-radius: 50px;
+    height: 5vh;
+    width: 5vh;
+    text-align: center;
+    font-family: 'Just Another Hand', serif;
+}
+
+.search-button {
+    margin-top: 25px;
+    background: pink;
+    color: white;
+    width: 80%;
+    height: 100%;
+    padding: 0 10px;
+    font-family: 'Just Another Hand', serif;
+    font-size: 19px;
+    letter-spacing: 1.2px;
 }
