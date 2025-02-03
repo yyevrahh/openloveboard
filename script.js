@@ -19,84 +19,95 @@ const db = firebase.firestore();
 
 const messagesContainer = $(".messages");
 
-function loadRecentMessages() {
-    db.collection("messages")
-        .orderBy("date", "desc")
-        .limit(10)
-        .get()
+let lunrIndex;
+let messagesData = [];
+
+function loadAndIndexMessages() {
+    db.collection("messages").orderBy("date", "desc").get()
         .then(snapshot => {
-            messagesContainer.empty();
+            messagesData = [];
+
             snapshot.forEach(doc => {
-                const data = doc.data();
-                const imagePath = `res/${data.reason}.png`;
-                const messageItem = $(`
-                    <div class="messageItem" style="background-image: url('${imagePath}');">
-                        <div class="recipient-name">${data.recipientName}</div>
-                        <div class="recipient-strand"><strong>Strand:</strong> ${data.strand}</div>
-                        <div class="sender-name"><strong>From:</strong> ${data.senderName}</div>
-                        <div class="message-content">"${data.message}"</div>
-                    </div>
-                `);
-                messagesContainer.append(messageItem);
+                let data = doc.data();
+                data.id = doc.id;
+                messagesData.push(data);
             });
+
+            lunrIndex = lunr(function () {
+                this.ref("id");
+                this.field("recipientName");
+                this.field("strand");
+                messagesData.forEach(doc => this.add(doc), this);
+            });
+
+            searchMessages();
+            displayMessages(messagesData.slice(0, 5));
         })
-        .catch(error => console.error("Error loading messages:", error));
+
+        .catch(error => console.error("Error loading messages:", error)
+    );
 }
 
-$(document).ready(loadRecentMessages);
-
-const recipientInput = $("#recipientName");
-const strandInput = $("#recipientStrandSection");
-const searchButton = $(".search");
+$(document).ready(loadAndIndexMessages);
 
 function searchMessages() {
-    let query = db.collection("messages").orderBy("date", "desc");
+    const nameQuery = $("#recipientName").val().trim();
+    const strandQuery = $("#recipientStrandSection").val().trim();
 
-    const recipientName = recipientInput.val().trim();
-    const strand = strandInput.val().trim();
-
-    if (recipientName) {
-        query = query.where("recipientName", "==", recipientName);
-    }
-    if (strand) {
-        query = query.where("strand", "==", strand);
+    if (!nameQuery && !strandQuery) {
+        displayMessages(messagesData);
+        return;
     }
 
-    query.get()
-        .then(snapshot => {
-            messagesContainer.empty();
-            if (snapshot.empty) {
-                messagesContainer.html("<p>No messages found.</p>");
-                return;
-            }
+    const results = lunrIndex.search(nameQuery + ' ' + strandQuery);
+    const matchedMessages = results.map(r => messagesData.find(msg => msg.id === r.ref));
 
-            snapshot.forEach(doc => {
-                const data = doc.data();
-                let showMessage = false;
-
-                if (recipientName && data.recipientName.includes(recipientName)) {
-                    showMessage = true;
-                }
-
-                if (strand && data.strand.includes(strand)) {
-                    showMessage = true;
-                }
-
-                if (showMessage) {
-                    const imagePath = `res/${data.reason}.png`;
-                    const messageItem = $(`
-                        <div class="messageItem" style="background-image: url('${imagePath}');">
-                            <div class="recipient-name">${data.recipientName}</div>
-                            <div class="recipient-strand"><strong>Strand:</strong> ${data.strand}</div>
-                            <div class="sender-name"><strong>From:</strong> ${data.senderName}</div>
-                            <div class="message-content">"${data.message}"</div>
-                        </div>
-                    `);
-                    messagesContainer.append(messageItem);
-                }
-            });
-        })
-        .catch(error => console.error("Error fetching messages:", error));
+    displayMessages(matchedMessages);
 }
 
-searchButton.on("click", searchMessages);
+$(".search").on("click", searchMessages);
+
+function displayMessages(messages) {
+    messagesContainer.empty();
+    if (messages.length === 0) {
+        messagesContainer.html("<p>No messages found.</p>");
+        return;
+    }
+    
+    messages.forEach(data => {
+        const imagePath = `res/${data.reason}.png`;
+        let color = getColor(data.reason);
+
+        //  style="background-image: url('${imagePath}');" to message item
+
+        const messageItem = $(`
+            <div class="message-item">
+               <div class="head toggle">
+                    <div class="pin"></div>
+                    <div class="message-info">
+                        <div class="recipient-name">${data.recipientName}</div>
+                        <div class="strand">${data.strand}</div>
+                        <div class="sender-name">${data.senderName}</div>
+                    </div>
+               </div>
+               <div class="body panel" style="display: none; background: ${color};">
+                    <div class="message">${data.message}</div>
+               </div>
+            </div>
+        `);
+        messagesContainer.append(messageItem);
+    });
+}
+
+function getColor(reason) {
+    return {
+        love: "pink",
+        friend: "lightgoldenrodyellow",
+        confession: "plum",
+        support: "skyblue"
+    }[reason] || "greenyellow";
+}
+
+$(document).on("click", ".toggle", function() {
+    $(this).next(".panel").stop(true, true).slideToggle();
+});

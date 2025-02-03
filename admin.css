@@ -28,11 +28,13 @@ input {
 }
 
 button {
-    width: 50%;
+    all: unset;
+    width: 400px;
     background: #000;
     color: white;
     border: 1px solid white;
-    padding: 10px 23px;
-    border-radius: 8px;
-    margin: 0 29% 0 21%;
+    padding: 3px 8px;
+    margin: 10px auto;
+    border-radius: 16px;
+    text-align: center;
 }
