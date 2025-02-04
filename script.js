@@ -95,8 +95,8 @@ function displayMessages(messages) {
                         <div class="sender-name">From: ${data.senderName}</div>
                     </div>
                </div>
-               <div class="body" style="display: none; background: ${color};">
-                    <div class="message panel">"${data.message}"</div>
+               <div class="body panel" style="display: none; background: ${color};">
+                    <div class="message">"${data.message}"</div>
                </div>
             </div>
         `);
@@ -119,5 +119,5 @@ function getColor(reason) {
 }
 
 $(document).on("click", ".toggle", function() {
-    $(this).closest(".message-item").find(".panel").stop(true, true).slideToggle(300);
+    $(this).next(".panel").stop(true, true).slideToggle(300);
 });
