@@ -17,7 +17,7 @@ const quotes = [
     "admin ba kayo mæm?",
     "SANDALE!",
     "medjo naguluhan ako nak",
-    "hindi porket nakatulala sabog na, 'di ba pwedeng iniisip lang kita?",
+    "'di porket tulala, sabog. miss lng kita.",
     "kapag tumila na ang ulan, walang ulan",
     "minsan everyday",
     "pake ko?",
