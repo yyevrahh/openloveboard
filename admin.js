@@ -12,6 +12,20 @@ const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth(app);
 const db = firebase.firestore(app);
 
+const quotes = [
+    "Tayo ay nasa ✨fine dining restaurant✨",
+    "admin ba kayo mæm?",
+    "SANDALE!",
+    "medjo naguluhan ako nak",
+    "hindi porket nakatulala sabog na, 'di ba pwedeng iniisip lang kita?",
+    "kapag tumila na ang ulan, walang ulan",
+    "minsan everyday",
+    "pake ko?",
+    "mga sintomas na wala kanang utak",
+    "6'6 btw..",
+    "Admin's got infinite rizz 🔥🔥🔥🔥"
+];
+
 let userId;
 
 auth.onAuthStateChanged((user) => {
@@ -35,11 +49,12 @@ $('#submit').on('click', async () => {
     const recipientStrandSection = $('#recipientStrandSection').val().trim();
     const senderName = $('#senderName').val().trim() || "Anonymous";
     const message = $('#message').val().trim();
+    const pin = $('#pin').val().trim();
     const reason = $('#reason').val().trim().toLowerCase();
     const note = $('#note').val().trim();
     const date = new Date();
 
-    if (!recipientName || !message || !reason) {
+    if (!recipientName || !recipientStrandSection || !message || !reason || !pin) {
         alert("Recipient name, message, and reason are required.");
         return;
     }
@@ -50,6 +65,7 @@ $('#submit').on('click', async () => {
             strand: recipientStrandSection,
             senderName: senderName,
             message: message,
+            pin: pin,
             reason: reason,
             note: note,
             date: date
@@ -61,4 +77,8 @@ $('#submit').on('click', async () => {
         console.error("Error adding document: ", error);
         alert("Failed to add message.");
     }
+});
+
+$("#submit").on('click', function() {
+    $(".p").html(quotes[Math.floor(Math.random()*quotes.length)]);
 });

@@ -125,7 +125,8 @@ input {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    justify-items: start;
+    justify-items: center;
+    position: relative;
 }
 
 .message-item {
@@ -147,6 +148,8 @@ input {
     align-items: center;
     justify-content: center;
     border: 1px solid rgb(128, 96, 0);
+    height: 100px;
+    overflow: auto;
 }
 
 .pin {
@@ -166,11 +169,88 @@ input {
 }
 
 .body {
-    max-height: 300px;
+    height: fit-content;
     overflow-y: auto;
 }
 
 .footer {
     width: 100%;
     height: 8vh;
+}
+
+.message {
+    min-height: 100px;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-height: 250px;
+    overflow: auto;
+}
+
+.message-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.message-item.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.search-loader {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.search-loader:before,
+.search-loader:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    animation: pulsOut 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 1rem #fb67ccc8);
+}
+.search-loader:before {
+    width: 100%;
+    padding-bottom: 100%;
+    box-shadow: inset 0 0 0 1rem #fb67cc;
+    animation-name: pulsIn;
+}
+.search-loader:after {
+    width: calc(100% - 2rem);
+    padding-bottom: calc(100% - 2rem);
+    box-shadow: 0 0 0 0 #fb67cc;
+}
+
+@keyframes pulsIn {
+    0% {
+        box-shadow: inset 0 0 0 1rem #fb67cc;
+        opacity: 1;
+    }
+    50%, 100% {
+        box-shadow: inset 0 0 0 0 #fb67cc;
+        opacity: 0;
+    }
+}
+
+@keyframes pulsOut {
+    0%, 50% {
+        box-shadow: 0 0 0 0 #fb67cc;
+        opacity: 0;
+    }
+    100% {
+        box-shadow: 0 0 0 1rem #fb67cc;
+    }
+}
+
+.messages.loading .search-loader {
+    display: flex;
 }

@@ -61,7 +61,14 @@ function searchMessages() {
 
     const results = lunrIndex.search(nameQuery + ' ' + strandQuery);
     const matchedMessages = results.map(r => messagesData.find(msg => msg.id === r.ref));
+    const messagesDiv = document.querySelector('.messages');
+    
+    messagesDiv.classList.add('loading');
 
+    setTimeout(() => {
+        messagesDiv.classList.remove('loading');
+    }, 2000);
+    
     displayMessages(matchedMessages);
 }
 
@@ -74,14 +81,12 @@ function displayMessages(messages) {
         return;
     }
     
-    messages.forEach(data => {
+    messages.forEach((data, index) => {
         const imagePath = `res/${data.reason}.png`;
         let color = getColor(data.reason);
 
-        //  style="background-image: url('${imagePath}');" to message item
-
         const messageItem = $(`
-            <div class="message-item">
+            <div class="message-item hidden">
                <div class="head toggle">
                     <div class="pin"></div>
                     <div class="message-info">
@@ -91,11 +96,16 @@ function displayMessages(messages) {
                     </div>
                </div>
                <div class="body panel" style="display: none; background: ${color};">
-                    <div class="message">${data.message}</div>
+                    <div class="message">"${data.message}"</div>
                </div>
             </div>
         `);
+
         messagesContainer.append(messageItem);
+
+        setTimeout(() => {
+            messageItem.removeClass("hidden");
+        }, index * 300);
     });
 }
 
@@ -109,5 +119,5 @@ function getColor(reason) {
 }
 
 $(document).on("click", ".toggle", function() {
-    $(this).next(".panel").stop(true, true).slideToggle();
+    $(this).next(".panel").stop(true, true).slideToggle(300);
 });
