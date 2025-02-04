@@ -119,5 +119,5 @@ function getColor(reason) {
 }
 
 $(document).on("click", ".toggle", function() {
-    $(this).next(".panel").stop(true, true).slideToggle(300);
+    $(this).closest(".message-item").find(".panel").stop(true, true).slideToggle(300);
 });
