@@ -90,9 +90,9 @@ function displayMessages(messages) {
                <div class="head toggle">
                     <div class="pin"></div>
                     <div class="message-info">
-                        <div class="recipient-name">Message for: ${data.recipientName}</div>
+                        <div class="recipient-name">Message for ${data.recipientName}</div>
                         <div class="strand">${data.strand}</div>
-                        <div class="sender-name">From: ${data.senderName}</div>
+                        <div class="sender-name">From ${data.senderName}</div>
                     </div>
                </div>
                <div class="body panel" style="display: none; background: ${color};">

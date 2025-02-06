@@ -8,7 +8,35 @@ body {
     background-repeat: repeat;
     margin: 0 auto;
     padding: 0;
-    background: #fff;
+    background: #ebeaea;
+    font-family: 'Outfit', serif;
+    scroll-behavior: smooth;
+}
+
+h4 {
+    margin: 0;
+}
+
+/* #ff7878, #ffb2b2, #fff, #df4646,  #a70808 */
+
+.olb {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/res/wavy_h2.svg');
+    width: 100%;
+    height: 300px;
+    margin: 0;
+    font-family: 'Instrument Serif', serif;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 3vh;
+    font-size: 68px;
+    font-weight: 1400;
+    line-height: 9.5vh;
 }
 
 ::-webkit-scrollbar {
@@ -21,7 +49,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #ff66a3;
+    background: #ff7878;
     border-radius: 14px;
 }
 
@@ -31,7 +59,7 @@ body {
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: #ff66a3 #ffe6f2;
+    scrollbar-color: #df4646 #ffe6f2;
 }
 
 
@@ -83,16 +111,12 @@ body {
     align-items: center;
 }
 
-.nav {
-    position: fixed;
-    height: 6vh;
-    width: 96%;
-    padding: 2vw 2%;
-}
-
-
 .search-box {
-    margin-top: 20vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/res/wavy_h4.svg');
+    margin-top: 2vh;
     height: fit-content;
     width: 96%;
     padding: 2vw 2%;
@@ -100,6 +124,23 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 230px;
+    color: white;
+    border-radius: 8px;
+}
+
+.search {
+    all: unset;
+    width: 30%;
+    margin-top: -30px;
+    margin-bottom: 5vh;
+    border-radius: 28px;
+    height: 5vh;
+    background: linear-gradient(195deg, #ff7878, #df4646);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .inputs {
@@ -116,6 +157,7 @@ input {
     border-radius: 8px;
     border: 1px solid black;
     padding: 3px 8px;
+    margin-bottom: 2vh;
 }
 
 .messages {
