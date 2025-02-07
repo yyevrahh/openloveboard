@@ -84,11 +84,12 @@ function displayMessages(messages) {
     messages.forEach((data, index) => {
         const imagePath = `res/${data.reason}.png`;
         let color = getColor(data.reason);
+        let pinImage = getPinNumber(data.pin);
 
         const messageItem = $(`
-            <div class="message-item hidden">
+            <div class="message-item hidden" style="background: ${color};">
                <div class="head toggle">
-                    <div class="pin"></div>
+                    <div class="pin" style="background-image: url('res/${pinImage}');"></div>
                     <div class="message-info">
                         <div class="recipient-name">Message for ${data.recipientName}</div>
                         <div class="strand">${data.strand}</div>
@@ -111,13 +112,29 @@ function displayMessages(messages) {
 
 function getColor(reason) {
     return {
-        love: "pink",
-        friend: "lightgoldenrodyellow",
-        confession: "plum",
-        support: "skyblue"
-    }[reason] || "greenyellow";
+        love: "#ff5baa",
+        friend: "#ffec85",
+        confession: "#f471ff",
+        support: "#6fa8f2"
+    }[reason] || "#91f26f";
 }
 
+
+function getPinNumber(pin) {
+    return {
+        pin_1: "1.png",
+        pin_2: "2.png",
+        pin_3: "3.png",
+        pin_4: "4.png",
+        pin_5: "5.png",
+        pin_6: "6.png",
+        pin_7: "7.png",
+        pin_8: "8.png",
+        pin_9: "9.png",
+        pin_10: "10.png",
+        pin_11: "11.png"
+    }[pin] || "12.png";
+}
 $(document).on("click", ".toggle", function() {
     $(this).next(".panel").stop(true, true).slideToggle(300);
 });

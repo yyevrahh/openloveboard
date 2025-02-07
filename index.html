@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Loved+by+the+King&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
@@ -16,26 +16,33 @@
     <span class="loader"></span>
 
     <div class="content">
+        <div class="how">?</div>
         
-        <h2 class="olb">Open Love<br>Board</h2>
+        <h2 class="olb">
+            <span>OpenLove<br>Board</span>
+            <div class="to-heart">
+                <hr style="width: 10%; height: 10px; background: #fe2767;">
+                <hr style="width: 30%; height: 10px; background: #ff4588;">
+                <hr style="width: 90%; height: 10px; background: #ff5baa;">
+                <img style="margin-left: 10px;" src="res/pixel heart.png" alt="" height="50vh">
+            </div>
+        </h2>
        <div class="search-box">
             <div class="inputs">
-                <h4>Search for a Name</h4>
-                <input type="text" id="recipientName" placeholder="Juan Dela Cruz">
-                <h4>Strand and section</h4>
-                <input type="text" id="recipientStrandSection" placeholder="ICT402">
+                <h4>Search for a name:</h4>
+                <input type="text" id="recipientName" placeholder="Mommy Oni">
+                <h4>Strand and section:</h4>
+                <input type="text" id="recipientStrandSection" placeholder="TORO402">
+            </div>
+            <div class="button">
+                <button class="search">SEARCH</button>
             </div>
        </div>
-       
-       <center><button class="search">Search</button></center>
 
        <div class="messages">
             <span class="search-loader" style="width: 100px; height: 100px;"></span>
        </div>
 
-       <div class="footer">
-
-       </div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>

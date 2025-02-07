@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Pixel';
+    src: url('res/minecraft_standard/MinecraftStandard.otf') format('opentype');
+}
+
 body {
     min-height: 95vh;
     max-width: 500px;
@@ -8,35 +13,55 @@ body {
     background-repeat: repeat;
     margin: 0 auto;
     padding: 0;
-    background: #ebeaea;
-    font-family: 'Outfit', serif;
+    background: #ffd1f9;
     scroll-behavior: smooth;
+    font-family: 'Pixel';
 }
 
 h4 {
     margin: 0;
+    letter-spacing: .9px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #330053;
 }
 
-/* #ff7878, #ffb2b2, #fff, #df4646,  #a70808 */
+.how {
+    width: 96%;
+    text-align: end;
+    padding: .1vh 2vh;
+    font-size: 10px;
+    height: fit-content;
+    background: #973aff;
+    color: white;
+}
+
+/* #fe2767, #fbff3a, #973aff, #330053 */
 
 .olb {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 300px;
+    width: 88%;
+    padding: 1vh 6vh; 
+    font-size: 33px;
+    font-weight: 500;
+    color: #fe2767;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0;
+    line-height: 7.5vh;
+}
+
+hr {
     margin: 0;
-    font-family: 'Instrument Serif', serif;
-    color: #000;
+    border: none;
+}
+
+.to-heart {
+    width: 90%;
+    height: 6vh;
     display: flex;
     align-items: center;
-    text-align: center;
     justify-content: center;
-    padding-bottom: 3vh;
-    font-size: 68px;
-    font-weight: 1400;
-    line-height: 9.5vh;
-    border: 1px solid black;
 }
 
 ::-webkit-scrollbar {
@@ -44,12 +69,12 @@ h4 {
 }
 
 ::-webkit-scrollbar-track {
-    background: #ffe6f2;
+    background: none;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #ff7878;
+    background: #ff78f8a4;
     border-radius: 14px;
 }
 
@@ -57,10 +82,6 @@ h4 {
     background: #ff3385;
 }
 
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #df4646 #ffe6f2;
-}
 
 
 .loader {
@@ -112,76 +133,85 @@ h4 {
 }
 
 .search-box {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: 1px solid black;
-    margin-top: 2vh;
-    height: fit-content;
-    width: 96%;
-    padding: 2vw 2%;
+    border-top: 1.1vh solid #75007f;    
+    border-bottom: 1.1vh solid #f5e5ff;
+    margin-top: -1vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 230px;
-    color: rgb(0, 0, 0);
-    border-radius: 8px;
+    padding: 3vh 0;
+    background: #fcbaff;
 }
 
 .search {
     all: unset;
-    width: 30%;
-    margin-top: -30px;
-    margin-bottom: 5vh;
-    border-radius: 28px;
-    height: 5vh;
-    background: linear-gradient(195deg, #ff7878, #df4646);
-    color: white;
-    text-align: center;
-    font-size: 20px;
+    font-size: 13px;
+    border-top: .3vh solid #75007f;    
+    border-bottom: .3vh solid #f5e5ff;
+    color: #eac7ff;
+    background: #973aff;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    line-height: 3vh;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .inputs {
-    width: 98%;
+    width: 78%;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
 }
 
+.button {
+    width: 80%;
+    display: flex;
+    align-items: baseline;
+    justify-content: end;
+    height: fit-content;
+    margin-top: 1vh;
+}
+
 input {
     width: 98%;
     height: 3vh;
-    border-radius: 8px;
-    border: 1px solid black;
-    padding: 3px 8px;
-    margin-bottom: 2vh;
+    background: #f5e5ff;
+    border: none;
+    padding: 0px 8px;
 }
 
 .messages {
     overflow-y: auto;
-    max-height: 50vh;
+    min-height: 30vh;
+    max-height: 60vh;
     margin-top: 2vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     justify-items: center;
     position: relative;
+    margin-bottom: 5vh;
+    padding-top: 5vh;
 }
 
 .message-item {
-    height: fit-content;
-    width: 96%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 10px;
-    background-position: center;
-    background-size: 100%;
-    background-repeat: no-repeat;
+    font-size: 10px;
+    margin-bottom: 30px;
     cursor: pointer;
+    border: 1px solid #3d003d;
+    padding: 10px;
+    box-shadow:  
+        4px 0 0 #3d003d,
+        -4px 0 0 #3d003d,
+        0 4px 0 #3d003d, 
+        0 -4px 0 #3d003d;
+    image-rendering: pixelated;
+    height: fit-content;
+    min-width: 75%;
+    max-width: 75%;
 }
 
 .head {
@@ -189,20 +219,35 @@ input {
     width: 100%;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgb(128, 96, 0);
     height: 100px;
     overflow: auto;
 }
 
 .pin {
-    border: 1px solid white;
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
     background-image: url('res/ico_oblove.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     margin-right: 10px;
+}
+
+.recipient-name {
+    color: #330053;
+    font-size: 11px;
+    font-weight: 200;
+}
+
+.strand {
+    margin-bottom: 2vh;
+    color: #ab00a4;
+    font-size: 10px;
+}
+
+.sender-name {
+    color: #330053;
+    font-size: 9px;
 }
 
 .message-info {
@@ -213,11 +258,6 @@ input {
 .body {
     height: fit-content;
     overflow-y: auto;
-}
-
-.footer {
-    width: 100%;
-    height: 8vh;
 }
 
 .message {
