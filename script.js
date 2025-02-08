@@ -59,17 +59,23 @@ function searchMessages() {
         return;
     }
 
+    
     const results = lunrIndex.search(nameQuery + ' ' + strandQuery);
     const matchedMessages = results.map(r => messagesData.find(msg => msg.id === r.ref));
-    const messagesDiv = document.querySelector('.messages');
+
     
+    const filteredMessages = matchedMessages.filter(msg =>
+        msg.recipientName === nameQuery && msg.strand === strandQuery
+    );
+
+    const messagesDiv = document.querySelector('.messages');
     messagesDiv.classList.add('loading');
 
     setTimeout(() => {
         messagesDiv.classList.remove('loading');
     }, 2000);
-    
-    displayMessages(matchedMessages);
+
+    displayMessages(filteredMessages);
 }
 
 $(".search").on("click", searchMessages);
