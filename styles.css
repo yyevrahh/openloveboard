@@ -198,6 +198,7 @@ input {
     margin-bottom: 5vh;
     padding-top: 5vh;
     z-index: 900;
+    border-bottom: 1.1vh solid #f5e5ff;
 }
 
 .message-item {
