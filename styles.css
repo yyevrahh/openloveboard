@@ -8,7 +8,7 @@ body {
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-repeat: repeat;
     margin: 0 auto;
