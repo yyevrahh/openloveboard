@@ -157,6 +157,7 @@ hr {
     line-height: 3vh;
     font-weight: 500;
     cursor: pointer;
+    z-index: 999;
 }
 
 .inputs {
@@ -196,6 +197,7 @@ input {
     position: relative;
     margin-bottom: 5vh;
     padding-top: 5vh;
+    z-index: 900;
 }
 
 .message-item {
