@@ -51,21 +51,19 @@ function loadAndIndexMessages() {
 $(document).ready(loadAndIndexMessages);
 
 function searchMessages() {
-    const nameQuery = $("#recipientName").val().trim();
-    const strandQuery = $("#recipientStrandSection").val().trim();
+    const nameQuery = $("#recipientName").val().trim().toLowerCase();
+    const strandQuery = $("#recipientStrandSection").val().trim().toLowerCase();
 
-    if (!nameQuery && !strandQuery) {
-        displayMessages(messagesData);
-        return;
-    }
+    let searchQuery = '';
+    if (nameQuery) searchQuery += `${nameQuery}* `;
+    if (strandQuery) searchQuery += `${strandQuery}*`;
 
-    
-    const results = lunrIndex.search(nameQuery + ' ' + strandQuery);
+    const results = lunrIndex.search(searchQuery.trim());
     const matchedMessages = results.map(r => messagesData.find(msg => msg.id === r.ref));
 
-    
     const filteredMessages = matchedMessages.filter(msg =>
-        msg.recipientName === nameQuery && msg.strand === strandQuery
+        (!nameQuery || msg.recipientName.toLowerCase().includes(nameQuery)) &&
+        (!strandQuery || msg.strand.toLowerCase().includes(strandQuery))
     );
 
     const messagesDiv = document.querySelector('.messages');
