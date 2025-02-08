@@ -190,7 +190,7 @@ input {
 .messages {
     overflow-y: auto;
     min-height: 30vh;
-    max-height: 90vh;
+    height: fit-content;
     margin-top: 0;
     display: grid;
     grid-template-columns: 1fr;
