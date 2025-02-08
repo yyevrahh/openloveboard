@@ -136,7 +136,7 @@ hr {
 .search-box {
     border-top: 1.1vh solid #75007f;    
     border-bottom: 1.1vh solid #f5e5ff;
-    margin-top: -1vh;
+    margin-top: -3vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -188,7 +188,7 @@ input {
     overflow-y: auto;
     min-height: 30vh;
     max-height: 60vh;
-    margin-top: 2vh;
+    margin-top: -1vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
