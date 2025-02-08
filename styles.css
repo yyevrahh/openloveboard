@@ -41,7 +41,7 @@ h4 {
 
 .olb {
     width: 88%;
-    padding: 1vh 3vh; /*4.5*/
+    padding: 1vh 0vh 1vh 4vh; /*4.5*/
     font-size: 33px;
     font-weight: 500;
     color: #fe2767;
