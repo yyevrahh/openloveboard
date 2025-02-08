@@ -30,7 +30,7 @@ h4 {
 .how {
     width: 96%;
     text-align: end;
-    padding: .1vh 2vh;
+    padding: .1vh 2%; /*2vh*/
     font-size: 10px;
     height: fit-content;
     background: #973aff;
@@ -41,7 +41,7 @@ h4 {
 
 .olb {
     width: 88%;
-    padding: 1vh 4.5vh; 
+    padding: 1vh 2vh; /*4.5*/
     font-size: 33px;
     font-weight: 500;
     color: #fe2767;
