@@ -16,6 +16,7 @@ body {
     background: #ffd1f9;
     scroll-behavior: smooth;
     font-family: 'Pixel';
+    overflow-x: hidden;
 }
 
 h4 {
