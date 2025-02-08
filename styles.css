@@ -143,6 +143,7 @@ hr {
     align-items: center;
     padding: 3vh 0;
     background: #fcbaff;
+    margin-bottom: 1vh;
 }
 
 .search {
@@ -188,14 +189,14 @@ input {
 .messages {
     overflow-y: auto;
     min-height: 30vh;
-    max-height: 60vh;
-    margin-top: -1vh;
+    max-height: 90vh;
+    margin-top: 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     justify-items: center;
     position: relative;
-    margin-bottom: 5vh;
+    margin-bottom: 0;
     padding-top: 5vh;
     z-index: 900;
     border-bottom: 1.1vh solid #f5e5ff;
