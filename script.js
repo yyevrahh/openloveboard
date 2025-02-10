@@ -117,10 +117,11 @@ function displayMessages(messages) {
 function getColor(reason) {
     return {
         love: "#ff5baa",
+        appreciation: "#91f26f",
         friend: "#ffec85",
         confession: "#f471ff",
         support: "#6fa8f2"
-    }[reason] || "#91f26f";
+    }[reason] || "#ff5baa";
 }
 
 
@@ -136,8 +137,18 @@ function getPinNumber(pin) {
         pin_8: "8.png",
         pin_9: "9.png",
         pin_10: "10.png",
-        pin_11: "11.png"
-    }[pin] || "12.png";
+        pin_11: "11.png",
+        pin_12: "12.png",
+        pin_13: "13.png",
+        pin_14: "14.png",
+        pin_15: "15.png",
+        pin_16: "16.png",
+        pin_17: "17.png",
+        pin_18: "18.png",
+        pin_19: "19.png",
+        pin_20: "20.png",
+        pin_21: "21.png"
+    }[pin] || "21.png";
 }
 $(document).on("click", ".toggle", function() {
     $(this).next(".panel").stop(true, true).slideToggle(300);

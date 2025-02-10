@@ -58,3 +58,8 @@ button {
         background-position: 0% 50%;
     }
 }
+
+h6 {
+    margin: 0;
+    font-size: 15px;
+}
